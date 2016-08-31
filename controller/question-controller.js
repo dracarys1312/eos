@@ -5,3 +5,9 @@ exports.getQuestion = function (request, response, next) {
         next(error);
     })
 };
+
+exports.postAnswer = function (request, response, next) {
+    request.app.questionService.answer(request.body).then(function (result) {
+        //TODO
+    })
+};
