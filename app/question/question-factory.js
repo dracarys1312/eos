@@ -17,8 +17,10 @@ QuestionFactory.prototype.makeListQuestion = function (raw) {
 
 //remoce correct answer from question
 QuestionFactory.prototype.make = function (raw) {
+    // console.log(raw);
     var question = new Question();
-    return question.$setAnswers(raw.answers)
+    return question.$setId(raw._id)
+        .$setAnswers(raw.answers)
         .$setContent(raw.content)
         .$setPurpose(raw.purpose)
         .$setType(raw.type);
