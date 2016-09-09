@@ -1,14 +1,13 @@
-var PartRepository = function (partCollection, partFactory) {
+var QuestionRepository = function (partCollection) {
     this.partCollection = partCollection;
-    this.partFactory = partFactory;
 };
 
-PartRepository.prototype.getPart = function () {
-    var partFactory = this.partFactory;
-
-    return this.partCollection.find({}).toArray().then(function (result) {
-        return partFactory.makeListPart(result);
+QuestionRepository.prototype.getQuestionsByPart = function (partNo) {
+    return this.partCollection.find({
+        part : partNo
+    }).toArray().then(function (result) {
+        return result;
     })
 };
 
-module.exports = PartRepository;
+module.exports = QuestionRepository;
