@@ -15,8 +15,6 @@ router.get('/', function (request, response) {
 
 router.get('/question', controller.Question.getQuestion);
 
-router.post('/answer', function (request, response, next) {
-    //TODO
-});
+router.post('/answer', controller.Question.postAnswer);
 
 module.exports = router;
