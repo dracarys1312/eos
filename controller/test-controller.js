@@ -1,5 +1,5 @@
 exports.getTest = function (request, response, next) {
-    request.app.partService.getPart(request.query.part).then(function (part) {
+    request.app.testService.getTest(request.query.testNo).then(function (part) {
         response.json(part);
     }, function (error) {
         next(error);

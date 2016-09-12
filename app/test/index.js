@@ -9,7 +9,7 @@ module.exports = function (request, response, next) {
 
     request.app.testService = new TestService(
         testRepo,
-        new TestFactory(),
+        new TestFactory()
     );
 
     next();

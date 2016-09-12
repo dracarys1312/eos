@@ -6,8 +6,6 @@ var TestService = function (testRepository, testFactory) {
 };
 
 TestService.prototype.getTest = function (testNo) {
-    var self = this;
-
     var testFactory = this.testFactory;
     return this.testRepository.getTest(testNo).then(function (test) {
         return testFactory.make(test);
