@@ -1,1 +1,1 @@
-exports.Question = require('./question-controller');
+exports.Test = require('./test-controller');

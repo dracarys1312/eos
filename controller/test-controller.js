@@ -1,4 +1,4 @@
-exports.getQuestion = function (request, response, next) {
+exports.getTest = function (request, response, next) {
     request.app.partService.getPart(request.query.part).then(function (part) {
         response.json(part);
     }, function (error) {

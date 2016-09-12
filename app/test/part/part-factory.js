@@ -1,5 +1,5 @@
 var Part            = require('./part');
-var QuestionFactory = require('./../question/question-factory');
+var QuestionFactory = require('./../../question/question-factory');
 
 var PartFactory = function () {
 
@@ -20,8 +20,9 @@ PartFactory.prototype.make = function (raw) {
 
     var part = new Part();
     return part.$setId(raw._id)
+        .$setTestId(raw.testId)
+        .$setSetionId(raw.sectionId)
         .$setPurpose(raw.purpose)
-        .$setNo(raw.no)
         .$setContent(raw.content)
         .$setQuestions(questionFactory.makeListQuestion(raw.questions));
 };

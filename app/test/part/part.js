@@ -11,17 +11,31 @@ Part.prototype.getId = function () {
     return this.id;
 };
 
-Part.prototype.$setNo = function (no) {
-    this.no = no;
+Part.prototype.$setSetionId = function (sectionId) {
+    this.sectionId = sectionId;
     return this;
 };
 
-Part.prototype.getNo = function () {
-    return this.no;
+Part.prototype.getSectionId = function () {
+    return this.sectionId;
+};
+
+Part.prototype.$setTestId = function (testId) {
+    this.testId = testId;
+    return this;
+};
+
+Part.prototype.$setTestId = function (testId) {
+    this.testId = testId;
+    return this;
+};
+
+Part.prototype.getTestId = function () {
+    return this.testId;
 };
 
 Part.prototype.$setPurpose = function (purpose) {
-    this.purpose = purpose
+    this.purpose = purpose;
     return this;
 };
 
@@ -45,16 +59,6 @@ Part.prototype.$setQuestions = function (questions) {
 
 Part.prototype.getQuestions = function () {
     return this.questions;
-};
-
-Part.prototype.toString = function () {
-    return {
-        id          : this.getId(),
-        no          : this.getNo(),
-        purpose     : this.getPurpose(),
-        content     : this.getContent(),
-        questions   : this.getQuestions()
-    }
 };
 
 module.exports = Part;
