@@ -17,13 +17,16 @@ QuestionFactory.prototype.makeListQuestion = function (raw) {
 
 //remoce correct answer from question
 QuestionFactory.prototype.make = function (raw) {
-    // console.log(raw);
     var question = new Question();
-    return question.$setId(raw._id)
+    return question.$setId(raw.questionId)
+        .$setTestId(raw.test)
+        .$setSectionId(raw.section)
+        .$setPartId(raw.part)
         .$setAnswers(raw.answers)
         .$setContent(raw.content)
         .$setPurpose(raw.purpose)
-        .$setType(raw.type);
+        .$setType(raw.type)
+        .$setCorrectAnswers(raw.correctAnswers);
 };
 
 module.exports = QuestionFactory;

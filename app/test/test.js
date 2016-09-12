@@ -20,8 +20,8 @@ Test.prototype.getContent = function () {
     return this.content;
 };
 
-Test.prototype.$setSections = function (sections) {
-    this.sections = sections;
+Test.prototype.$setSections = function (section) {
+    this.sections = section;
     return this;
 };
 

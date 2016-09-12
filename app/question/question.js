@@ -57,4 +57,31 @@ Question.prototype.getCorrectAnswers = function () {
     return this.correctAnswers;
 };
 
+Question.prototype.$setTestId = function (test) {
+    this.test = test;
+    return this;
+};
+
+Question.prototype.getTestId = function () {
+    return this.test;
+};
+
+Question.prototype.$setSectionId = function (section) {
+    this.section = section;
+    return this;
+};
+
+Question.prototype.getSectionId = function () {
+    return this.section;
+};
+
+Question.prototype.$setPartId = function (part) {
+    this.part = part;
+    return this;
+};
+
+Question.prototype.getPartId = function () {
+    return this.part;
+};
+
 module.exports = Question;

@@ -7,7 +7,9 @@ exports.getTest = function (request, response, next) {
 };
 
 exports.postAnswer = function (request, response, next) {
-    // request.app.questionService.answer(request.body).then(function (result) {
-    //     //TODO
-    // })
+    request.app.testService.answer(request.body).then(function (result) {
+        response.json({
+            result : result
+        })
+    })
 };
