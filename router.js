@@ -13,8 +13,8 @@ router.get('/', function (request, response) {
     });
 });
 
-router.get('/question', controller.Question.getQuestion);
+router.get('/test', controller.Test.getTest);
 
-router.post('/answer', controller.Question.postAnswer);
+router.post('/answer', controller.Test.postAnswer);
 
 module.exports = router;
