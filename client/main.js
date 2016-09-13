@@ -1,5 +1,7 @@
 var templates = {};
 var questionNumber = 0;
+var testData;
+
 $(document).ready(function(){
   templates.questionSingle = Handlebars.compile($("#template-question-single").html());
   templates.questionMultiple = Handlebars.compile($("#template-question-multiple").html());
@@ -36,9 +38,10 @@ $(document).ready(function(){
   });
 
   $.ajax({
-    url: "testJSON.json",
+    url: "/test",
     dataType: "json"
   }).done(function(data){
+    testData = data;
     $("#content").html(templates.test(data));
   }).fail(function(err){
     console.log(err);
@@ -46,15 +49,45 @@ $(document).ready(function(){
 
   $("#content").on('submit', function(e){
     e.preventDefault();
-    
+
+    var answersAsJSON = $(this).serializeObject();
+
+    for(var sectionIndex = 0; sectionIndex < testData["sections"].length; sectionIndex++){
+      for(var partIndex = 0; partIndex < testData["sections"][sectionIndex]["parts"].length; partIndex++) {
+        for(var questionIndex = 0; questionIndex < testData["sections"][sectionIndex]["parts"][partIndex]["questions"].length; questionIndex++) {
+          var question = testData["sections"][sectionIndex]["parts"][partIndex]["questions"][questionIndex];
+          question["correctAnswers"] = answersAsJSON[question.id + "_" + question.part + "_" + question.section + "_" + question.test];
+          testData["sections"][sectionIndex]["parts"][partIndex]["questions"][questionIndex] = question;
+        }
+      }
+    }
+
     $.ajax({
-      url   : "http://example.com",
-      data  : $("#content").serialize(),
-      type  : "post"
+      url   : "/answer",
+      data  : JSON.stringify(testData),
+      type  : "post",
+      contentType: "application/json",
     }).done(function(data){
-      console.log(data);
+      $("#content").html("<h1>Congratulation, you got " + data.result + "</h1>");
     }).fail(function(err){
       console.log(err);
     })
-  })
+  });
 });
+
+$.fn.serializeObject = function()
+{
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function() {
+    if (o[this.name] !== undefined) {
+      if (!o[this.name].push) {
+        o[this.name] = [o[this.name]];
+      }
+      o[this.name].push(this.value || '');
+    } else {
+      o[this.name] = [this.value] || [];
+    }
+  });
+  return o;
+};

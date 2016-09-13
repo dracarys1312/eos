@@ -20,7 +20,7 @@ SectionFactory.prototype.make = function (raw) {
     var partFactory = new PartFactory();
 
     var section = new Section();
-    return section.$setId(raw.id)
+    return section.$setId(raw.sectionId)
         .$setTestId(raw.testId)
         .$setContent(raw.content)
         .$setParts(partFactory.makeListPart(raw.parts));

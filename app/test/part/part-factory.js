@@ -19,11 +19,12 @@ PartFactory.prototype.make = function (raw) {
     var questionFactory = new QuestionFactory();
 
     var part = new Part();
-    return part.$setId(raw._id)
+    console.log(raw);
+    return part.$setId(raw.partId)
         .$setTestId(raw.testId)
         .$setSetionId(raw.sectionId)
         .$setPurpose(raw.purpose)
-        .$setContent(raw.content)
+        .$setContent(raw.tent)
         .$setQuestions(questionFactory.makeListQuestion(raw.questions));
 };
 

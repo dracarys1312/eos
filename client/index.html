@@ -14,39 +14,39 @@
 </head>
 <body>
   <script id="template-question-single" type="text/x-handlebars-template">
-    <p>{{number}}. {{content}}</p>
+    <p>{{id}}. {{content}}</p>
     <div class="form-group">
       {{#each answers}}
-        <input type="radio" value="{{value}}" name="question_{{../number}}" id="question_{{../number}}_{{@index}}">
-        <label class="answer_label" for="question_{{../number}}_{{@index}}">
+        <input type="radio" value="{{value}}" name="{{../id}}_{{../part}}_{{../section}}_{{../test}}" id="{{../id}}_{{../part}}_{{../section}}_{{../test}}_{{@index}}">
+        <label class="answer_label" for="{{../id}}_{{../part}}_{{../section}}_{{../test}}_{{@index}}">
           {{label}}
         </label>
       {{/each}}
     </div>
   </script>
   <script id="template-question-multiple" type="text/x-handlebars-template">
-    <p>{{number}}. {{content}}</p>
+    <p>{{id}}. {{content}}</p>
     <div class="form-group">
       {{#each answers}}
-        <input type="checkbox" value="{{value}}" name="question_{{../number}}" id="question_{{../number}}_{{@index}}">
-        <label class="answer_label" for="question_{{../number}}_{{@index}}">
+        <input type="checkbox" value="{{value}}" name="{{../id}}_{{../part}}_{{../section}}_{{../test}}" id="{{../id}}_{{../part}}_{{../section}}_{{../test}}_{{@index}}">
+        <label class="answer_label" for="{{../id}}_{{../part}}_{{../section}}_{{../test}}_{{@index}}">
           {{label}}
         </label>
       {{/each}}
     </div>
   </script>
   <script id="template-question-fill" type="text/x-handlebars-template">
-    <h>{{number}}. {{content}}</p>
+    <p>{{id}}. {{content}}</p>
     <div class="form-group">
-      <input type="text" class="form-control" name="question_{{number}}" placeholder="Your answer">
+      <input type="text" class="form-control" name="{{../id}}_{{../part}}_{{../section}}_{{../test}}" placeholder="Your answer">
     </div>
   </script>
   <script id="template-all" type="text/x-handlebars-template">
     {{#each sections}}
-      <h2 class="text-center">SECTION {{inc @index}}: {{purpose}}</h2>
+      <h2 class="text-center">SECTION {{id}}: {{purpose}}</h2>
       <p>{{content}}</p>
       {{#each parts}}
-        <h5><strong>Part {{inc @index}}: {{purpose}}</strong></h5>
+        <h5><strong>Part {{id}}: {{purpose}}</strong></h5>
         <p>{{content}}</p>
         {{listQuestions questions}}
       {{/each}}
