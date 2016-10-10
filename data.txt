@@ -1,0 +1,68 @@
+db.question.insert({
+	purpose : 'Read the passage and decide which is the best answer. Circle the letter A, B, C or D next to the word you choose.',
+	content : 'Paper is named for papyrus, a reed like plant used by ancient Egyptians as writing material more than 5000 years ago. The Chinese invented the paper that we use 2000 years ago.',
+	questions : [
+		{
+			content : 'According to the passage, the paper that we use was first invented by',
+			answers : [
+				{
+					value : 'A',
+					label : 'the Chinese'
+				},{
+					value : 'B',
+					label : 'the Egyptians'
+				},{
+					value : 'C',
+					label : 'ancient cultures'
+				}
+			],
+			correctAnswer : [
+				{
+					value : 'A',
+					label : 'the Chinese'
+				}
+			],
+			type : "single"
+		},{
+			content : 'What is the main ingredient in most paper',
+			answers : [
+				{
+					value : 'A',
+					label : 'resin'
+				},{
+					value : 'B',
+					label : 'cardboard'
+				},{
+					value : 'C',
+					label : 'plant fiber'
+				},{
+					value : 'C',
+					label : 'papyrus'
+				}
+			],
+			correctAnswer : [
+				{
+					value : 'B',
+					label : 'the Egyptians'
+				},{
+					value : 'C',
+					label : 'ancient cultures'
+				}
+			],
+			type : "multiple"
+		},{
+			content : 'I (book) (17) ...................................... the hotel in Sweden and also (receive) (18) ............................. information about the hotel.',
+			answers : [],
+			correctAnswer : [
+				{
+					value : '17',
+					label : 'the Egyptians'
+				},{
+					value : '18',
+					label : 'ancient cultures'
+				}
+			],
+			type : "fill"
+		}
+	]
+})
